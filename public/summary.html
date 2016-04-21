@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="formApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Form Submitted</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="css/styles.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"> </script>
+    <script src="js/controller.js"></script>
+</head>
+
+<body ng-controller="mainController" ng-init = "showSummary()">
+        <header>
+            <h1> Congratulation! your form has been submitted. </h1>
+        </header>
+        <table ng-table="summaryTable">
+            <thead>
+                <tr>
+                    <th ng-click="sortData('fname')"> First Name </th>
+                    <th ng-click="sortData('lname')"> Last Name </th>
+                    <th ng-click="sortData('age')"> Age </th>
+                    <th ng-click="sortData('email')"> Email </th>
+                    <th ng-click="sortData('country')"> Country </th>
+                    <th ng-click="sortData('phone')"> Phone </th>
+                    <th ng-click="sortData('date')"> Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in allpersons | orderBy:sortCol:reverseSort">
+                    <td>{{person.fname}}</td>
+                    <td>{{person.lname}}</td>
+                    <td>{{person.age}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.country}}</td>
+                    <td>{{person.phone}}</td>
+                    <td>{{person.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
