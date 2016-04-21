@@ -9,8 +9,8 @@
         .success(function (data) {
             console.log(data);
 
-            //$scope.formData.persons = data;
-            //console.log($scope.formData);
+            $scope.formData.persons = data;
+            console.log($scope.formData);
         })
         .error(console.log("Get error"));
     };
